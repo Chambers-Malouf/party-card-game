@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Party Card Game</title>
+</head>
+<body>
+    <h1>Party Card Game</h1>
+    <button onclick="drawCard()">Draw Card</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function drawCard() {
+            const response = await fetch('https://party-card-game.onrender.com/api/draw-card', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ mode: 'party' })
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = data.card;
+        }
+    </script>
+</body>
+</html>
