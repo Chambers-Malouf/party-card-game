@@ -50,6 +50,15 @@
 </head>
 <body>
   <h1>Party Card Game</h1>
+  <label for="mode">Choose a mode:</label>
+<select id="mode">
+  <option value="party">Party</option>
+  <option value="drinking">Drinking</option>
+  <option value="chill">Chill</option>
+  <option value="nsfw">NSFW</option>
+</select>
+
+<br><br>
   <button onclick="drawCard()">Draw Card</button>
   <div id="result"></div>
 
@@ -60,6 +69,7 @@
     };
 
     async function drawCard() {
+      const mode = document.getElementById("mode").value;
       const response = await fetch('https://party-card-game.onrender.com/api/draw-card', {
         method: 'POST',
         headers: {
