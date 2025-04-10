@@ -17,7 +17,7 @@ public class CardRepository {
 
         ));
         cardData.put("drinking", List.of(
-                "Finish your drink if you're in love with your ex."
+                "Still in love with your ex? Finish your drink."
         ));
         cardData.put("idk what to name this", List.of(
                 "Reveal to the group your last hookup, if they don't like it take three drinks",
