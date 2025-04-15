@@ -42,6 +42,7 @@ public class CardRepository {
                 "Sip for every situationship you've entertained this year.",
                 "Let someone else decide how much you drink.",
                 "You laugh, you drink — starting now.",
+                "Still in love with your ex? Finish your drink.",
                 "Finish your drink if you’ve ever said ‘never again’ and did it again anyway."
         )));
 
