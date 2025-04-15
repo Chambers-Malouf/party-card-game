@@ -18,4 +18,9 @@ public class CardService {
         }
         return cards.get(random.nextInt(cards.size()));
     }
+    public List<String> getAllCardsForMode(String mode) {
+        List<String> cards = cardRepository.getCardsForMode(mode.toLowerCase());
+        return cards != null ? new ArrayList<>(cards) : new ArrayList<>();
+    }
+
 }
