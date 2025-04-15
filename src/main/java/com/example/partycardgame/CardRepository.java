@@ -10,7 +10,8 @@ public class CardRepository {
                 "Take a body shot off someone of your choice.",
                 "Do 5 push-ups or finish your drink.",
                 "Invent a new drinking rule — everyone follows it.",
-                "Let someone pour a mystery drink — you drink it."
+                "Let someone pour a mystery drink — you drink it.",
+                "[player], you’ve been chosen. Finish your drink immediately."
         ));
         cardData.put("chill", List.of(
                 "Let another player go through your phone for 2 minutes (without sending anything)",
