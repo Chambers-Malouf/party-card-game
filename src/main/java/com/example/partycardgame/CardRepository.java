@@ -52,11 +52,11 @@ public class CardRepository {
         )));
 
         cardData.put("nsfw", new ArrayList<>(List.of(
-                new GameCard("Describe your last hookup in five words — or finish your drink.", "extreme", "wildcard"),
-                new GameCard("Name someone here you’d kiss right now — or everyone drinks.", "mild", "wildcard"),
-                new GameCard("Reveal your favorite position or take a double.", "extreme", "wildcard"),
-                new GameCard("Read your last flirtatious message out loud or take 3 sips.", "mild", "wildcard"),
-                new GameCard("Text your ex 'I miss you' or down your drink.", "extreme", "wildcard")
+                new GameCard("Describe your last hookup in five words — or finish your drink.", "extreme", "conflict"),
+                new GameCard("Name someone here you’d kiss right now — or everyone drinks.", "mild", "conflict"),
+                new GameCard("Reveal your favorite position or take a double.", "extreme", "conflict"),
+                new GameCard("Read your last flirtatious message out loud or take 3 sips.", "mild", "conflict"),
+                new GameCard("Text your ex 'I miss you' or down your drink.", "extreme", "conflict")
         )));
 
         cardData.put("truthordrink", new ArrayList<>(List.of(
@@ -93,8 +93,12 @@ public class CardRepository {
         return deck.get(new Random().nextInt(deck.size()));
     }
 
-    public String getRandomPunishment(String severity) {
-        List<String> pool = punishmentLevels.getOrDefault(severity, List.of("Take a sip."));
-        return pool.get(new Random().nextInt(pool.size()));
+    public Map<String, List<String>> getPunishmentLevels() {
+        return punishmentLevels;
     }
+
+    public List<GameCard> getCardsForMode(String mode) {
+        return cardData.getOrDefault(mode, new ArrayList<>());
+    }
+
 }

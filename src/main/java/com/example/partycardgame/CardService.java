@@ -1,3 +1,5 @@
+
+
 package com.example.partycardgame;
 
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ public class CardService {
 
     // Return a random GameCard for a given mode
     public GameCard getRandomCard(String mode) {
-        List<GameCard> deck = cardRepository.getCardsForMode(mode.toLowerCase());
+        List<GameCard> deck = cardRepository.getRandomCard(mode.toLowerCase());
         if (deck == null || deck.isEmpty()) {
             return new GameCard("No cards available for this mode.", "casual", "none"); // fallback
         }
@@ -30,4 +32,3 @@ public class CardService {
         return pool.get(random.nextInt(pool.size()));
     }
 }
-
