@@ -90,6 +90,7 @@ public class CardRepository {
 
     public GameCard getRandomCard(String mode) {
         List<GameCard> deck = cardData.getOrDefault(mode, cardData.get("party"));
+        if (deck == null || deck.isEmpty()) return null;
         return deck.get(new Random().nextInt(deck.size()));
     }
 
@@ -100,5 +101,6 @@ public class CardRepository {
     public List<GameCard> getCardsForMode(String mode) {
         return cardData.getOrDefault(mode, new ArrayList<>());
     }
+
 
 }
