@@ -14,18 +14,18 @@ public class CardRepository {
     public CardRepository() {
         Random random = new Random();
 
-        List<GameCard> duoCards = List.of(
-                new GameCard("[player1], trade phones with [player2] for 60 seconds — app of their choice.", "extreme", "duo"),
-                new GameCard("[player1], give [player2] a dare. If they refuse, they drink.", "mild", "duo"),
-                new GameCard("[player1] and [player2], take turns asking personal questions until someone folds and drinks.", "mild", "duo"),
-                new GameCard("[player1], explain your first impression of [player2]. Be honest.", "casual", "duo"),
-                new GameCard("[player1], if you had to hook up with [player2] or your last situationship, who would you pick?", "extreme", "duo"),
-                new GameCard("[player1], whisper something you've always wondered about [player2]. [Player2], answer out loud truthfully or finish your drink", "mild", "duo"),
-                new GameCard("[player1], guess [player2]'s body count. If they're offended, finish your drink.", "extreme", "duo"),
-                new GameCard("[player1], rate [player2]'s flirting ability on a scale from 1 to ‘take me home’.", "casual", "duo"),
-                new GameCard("[player1], challenge [player2] to a sip-for-sip showdown — loser finishes their drink.", "extreme", "duo"),
-                new GameCard("[player1], ask [player2] the last thing they lied about.", "mild", "duo"),
-                new GameCard("[player1], you are a bitch. [player1] gets to take every punishment for a whole round.", "extreme", "duo")
+        List<GameCard> oneOnOneCards = List.of(
+                new GameCard("[player1], trade phones with [player2] for 60 seconds — app of their choice.", "extreme", "1on1"),
+                new GameCard("[player1], give [player2] a dare. If they refuse, they drink.", "mild", "1on1"),
+                new GameCard("[player1] and [player2], take turns asking personal questions until someone folds and drinks.", "mild", "1on1"),
+                new GameCard("[player1], explain your first impression of [player2]. Be honest.", "casual", "1on1"),
+                new GameCard("[player1], if you had to hook up with [player2] or your last situationship, who would you pick?", "extreme", "1on1"),
+                new GameCard("[player1], whisper something you've always wondered about [player2]. [player2], answer out loud truthfully or finish your drink", "mild", "1on1"),
+                new GameCard("[player1], guess [player2]'s body count. If they're offended, finish your drink.", "extreme", "1on1"),
+                new GameCard("[player1], rate [player2]'s flirting ability on a scale from 1 to ‘take me home’.", "casual", "1on1"),
+                new GameCard("[player1], challenge [player2] to a sip-for-sip showdown — loser finishes their drink.", "extreme", "1on1"),
+                new GameCard("[player1], ask [player2] the last thing they lied about.", "mild", "1on1"),
+                new GameCard("[player1], you are a bitch. [player1] gets to take every punishment for a whole round.", "extreme", "1on1")
         );
 
         cardData.put("party", new ArrayList<>(List.of(
@@ -75,14 +75,14 @@ public class CardRepository {
                 new GameCard("What’s something you’d say to your ex if they were here right now?", "extreme", "conflict")
         )));
 
-        cardData.put("duo", new ArrayList<>(duoCards));
+        cardData.put("1on1", new ArrayList<>(oneOnOneCards));
 
         for (String mode : List.of("party", "chill", "nsfw", "truthordrink", "drama")) {
-            cardData.get(mode).addAll(duoCards);
+            cardData.get(mode).addAll(oneOnOneCards);
         }
 
         List<GameCard> allCards = new ArrayList<>();
-        for (String mode : List.of("party", "chill", "nsfw", "truthordrink", "drama", "duo")) {
+        for (String mode : List.of("party", "chill", "nsfw", "truthordrink", "drama", "1on1")) {
             allCards.addAll(cardData.get(mode));
         }
         cardData.put("all", allCards);
@@ -101,6 +101,4 @@ public class CardRepository {
     public List<GameCard> getCardsForMode(String mode) {
         return cardData.getOrDefault(mode, new ArrayList<>());
     }
-
-
 }
