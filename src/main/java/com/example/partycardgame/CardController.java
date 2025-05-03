@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 import java.util.List;
+import org.springframework.http.ResponseEntity;
+
 
 @RestController
 @RequestMapping("/api")
@@ -20,16 +22,13 @@ public class CardController {
     }
 
     @PostMapping("/get-cards")
-    public CardResponse getCards(@RequestBody CardRequest request) {
+    public ResponseEntity<List<GameCard>> getCards(@RequestBody CardRequest request) {
         List<GameCard> cards = cardService.getAllCardsForMode(request.getMode());
         if (cards.isEmpty()) {
-            return new CardResponse("No cards available for this mode.");
+            return ResponseEntity.ok(Collections.emptyList());
         }
-
-        // Shuffle once and return as a JSON string
         Collections.shuffle(cards);
-        String cardListJson = String.join("||", cards.stream().map(GameCard::getText).toList());
-        return new CardResponse(cardListJson);
+        return ResponseEntity.ok(cards);
     }
 }
 
