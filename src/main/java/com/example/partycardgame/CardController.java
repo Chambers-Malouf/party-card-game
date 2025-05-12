@@ -17,7 +17,7 @@ public class CardController {
     @PostMapping("/draw-card")
     public CardResponse drawCard(@RequestBody CardRequest request) {
         GameCard card = cardService.getRandomCard(request.getMode());
-        return new CardResponse(card);
+        return new CardResponse(card.getText());
     }
 
     @PostMapping("/get-cards")

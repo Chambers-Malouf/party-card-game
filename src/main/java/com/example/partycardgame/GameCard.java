@@ -4,13 +4,11 @@ public class GameCard {
     private final String text;
     private final String severity;
     private final String type;
-    private final String imageFile;
 
-    public GameCard(String text, String severity, String type, String imageFile) {
+    public GameCard(String text, String severity, String type) {
         this.text = text;
         this.severity = severity;
         this.type = type;
-        this.imageFile = imageFile;
     }
 
     public String getText() {
@@ -23,9 +21,5 @@ public class GameCard {
 
     public String getType() {
         return type;
-    }
-
-    public String getImageFile() {
-        return imageFile;
     }
 }
