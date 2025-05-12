@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 
-
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
@@ -18,7 +17,7 @@ public class CardController {
     @PostMapping("/draw-card")
     public CardResponse drawCard(@RequestBody CardRequest request) {
         GameCard card = cardService.getRandomCard(request.getMode());
-        return new CardResponse(card.getText());
+        return new CardResponse(card);
     }
 
     @PostMapping("/get-cards")
@@ -31,4 +30,3 @@ public class CardController {
         return ResponseEntity.ok(cards);
     }
 }
-
