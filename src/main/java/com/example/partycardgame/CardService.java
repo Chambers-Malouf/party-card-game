@@ -11,7 +11,7 @@ public class CardService {
     public GameCard getRandomCard(String mode) {
         GameCard card = cardRepository.getRandomCard(mode.toLowerCase());
         if (card == null) {
-            return new GameCard("No cards available for this mode.", "casual", "none","none");
+            return new GameCard("No cards available for this mode.", "casual", "none");
         }
         return card;
     }
