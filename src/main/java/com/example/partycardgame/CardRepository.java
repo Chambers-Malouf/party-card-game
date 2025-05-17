@@ -40,7 +40,9 @@ public class CardRepository {
                 new GameCard("Still in love with your ex? Finish your drink.", "extreme", "truth"),
                 new GameCard("If you've had a pregnancy scare, finish your drink.", "extreme", "truth"),
                 new GameCard("If you've taken/ bought a Plan B in the past month", "extreme", "truth"),
-                new GameCard("Finish your drink if you’ve ever said you are 'never drinking again’.", "extreme", "truth")
+                new GameCard("Finish your drink if you’ve ever said you are 'never drinking again’.", "extreme", "truth"),
+                new GameCard("Who is the biggest slut?", "mild", "drama", "voting")
+
         )));
 
         cardData.put("chill", new ArrayList<>(List.of(
